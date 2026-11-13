@@ -1,0 +1,7 @@
+function FRExists(filenamePtr):
+    copy filenamePtr -> DNAMBF/DEXTBF
+    call SEARCH DIRECTORY
+    if V973 != 0:
+        FRStatus <- FOUND (0)
+    else:
+        FRStatus <- NOT_FOUND (nonzero)

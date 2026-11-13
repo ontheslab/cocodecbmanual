@@ -1,0 +1,8 @@
+function FRSeek(targetOffset):
+    if targetOffset < FRPos:
+        # can't rewind - reopen from scratch, which resets FRPos to 0
+        FROpen(FRFilename)
+    while FRPos < targetOffset:
+        FRReadByte()
+        if FRStatus != OK:
+            break                # hit EOF before reaching the target

@@ -1,0 +1,3 @@
+function FRClose():
+    call CLOSEALL_VEC            # $CAE9 - NOT $0191, see below
+    FRIsOpen <- false

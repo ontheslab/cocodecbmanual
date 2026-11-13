@@ -1,0 +1,5 @@
+lwasm -9b -o MYPROG.bin MYPROG.asm
+decb dskini -3 DEMO.DSK
+decb copy -2 -b MYPROG.bin DEMO.DSK,MYPROG.BIN
+decb copy -1 -b MYFILE.TXT DEMO.DSK,MYFILE.TXT
+decb dir DEMO.DSK
