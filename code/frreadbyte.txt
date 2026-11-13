@@ -1,0 +1,10 @@
+function FRReadByte():
+    DEVNUM <- 1
+    byte <- call DISK CONSOLE IN
+    DEVNUM <- 0
+    if CINBFL != 0:
+        FRStatus <- EOF
+        return                  # byte value on EOF is not meaningful
+    FRStatus <- OK
+    FRPos <- FRPos + 1
+    return byte

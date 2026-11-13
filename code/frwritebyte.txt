@@ -1,0 +1,4 @@
+function FRWriteByte(byte):
+    DEVNUM <- 1
+    call CONSOLE OUT (byte)
+    DEVNUM <- 0

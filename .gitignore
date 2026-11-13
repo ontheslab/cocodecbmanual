@@ -1,0 +1,10 @@
+# Release artefacts are attached to releases, not committed.
+*.pdf
+*.zip
+*.docx
+
+# Editor and OS leftovers
+Thumbs.db
+desktop.ini
+*~
+.DS_Store

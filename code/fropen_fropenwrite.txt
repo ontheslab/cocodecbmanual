@@ -1,0 +1,21 @@
+function FROpen(filenamePtr):
+    return FROpenCommon(filenamePtr, mode = 'I')
+
+function FROpenWrite(filenamePtr):
+    return FROpenCommon(filenamePtr, mode = 'O')
+
+function FROpenCommon(filenamePtr, mode):
+    if a file is already known to be open:
+        FRClose()                      # never leave two files open at once
+    copy filenamePtr[0..7]  -> DNAMBF  # 8-byte name
+    copy filenamePtr[8..10] -> DEXTBF  # 3-byte extension
+    DFLTYP <- 1                        # DATA file
+    DASCFL <- 0                        # binary, not ASCII/crunched
+    DFFLEN <- $00FF                    # matches BASIC's own OPEN default
+    FRPos  <- 0                        # this module's own byte-position tracker
+    DEVNUM <- 1
+    call OPEN DISK FILE (A = mode, B = 1)
+    DEVNUM <- 0
+    FRStatus <- 0
+    FRIsOpen <- true
+    return
